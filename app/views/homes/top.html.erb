@@ -1,1 +1,19 @@
-<h1>トップページ</h1>
+<div class="mx-auto" style="width: 500px;">
+<h1 class="text-center">welcome to <i class="fas fa-book"></i>Bookers !!</h1>
+  <p>In <i class="fas fa-book"></i>Bookers,</p>
+  <p class="text-center">you can share and exchange your opinions , inpressions , and emotions about various books!</p>
+</div>
+
+<% if user_signed_in? %>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <button type="button" class="btn btn-primary w-30"><%= link_to "Log in", users_path(current_user.id), class: 'text-light' %></button>
+    <button type="button" class="btn btn-success w-30"><%= link_to "Sign up", users_path(current_user.id), class: 'text-light' %></button>
+  </div>
+<% else %>
+  <p>
+    <button type="button" class="btn btn-primary w-30"><%= link_to "Log in", new_user_session_path, class: 'text-light' %></button><br/>
+  </p>
+  <p>
+    <button type="button" class="btn btn-success w-30"><%= link_to "Sign up", new_user_registration_path, class: 'text-light' %></button>
+  </p>
+<% end %>
