@@ -19,7 +19,7 @@
       <p><%= link_to "プロフィール編集", edit_user_path(current_user.id) %></p>
 
       <h2>New book</h2>
-      <%= form_with model:@book, local:true do |f| %>
+      <%= form_with model:@book_new, local:true do |f| %>
       <p>Title</p>
       <%= f.text_field :title %>
       <p>Opinion</p>
@@ -34,7 +34,7 @@
         <thead>
           <tr>
             <td>
-              <%= attachment_image_tag @user, :profile_image, :fill, 30, 30, format: 'jpeg', fallback: "no_image.jpg" %>
+              <%= attachment_image_tag @user, :profile_image, :fill, 30, 30, format: 'jpeg', fallback: "no_image.jpg", size:'30x30' %>
             </td>
             <td>
               <%= @book.title %>
@@ -43,6 +43,7 @@
               <%= @book.body %>
             </td>
             <td><%= link_to "Edit", edit_book_path(@book) %></td>
+            <td><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
           </tr>
         </thead>
       </table>
