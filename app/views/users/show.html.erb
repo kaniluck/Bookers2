@@ -2,7 +2,7 @@
 <%= flash[:success] %>
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <h2>User info</h2>
       <%= attachment_image_tag @user, :profile_image, :fill, 30, 30, format: 'jpeg', fallback: "no_image.jpg" %>
       <table class="table">
@@ -32,7 +32,7 @@
       <% end %>
 
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table">
         <thead>
